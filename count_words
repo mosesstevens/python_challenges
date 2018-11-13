@@ -1,0 +1,18 @@
+# Count words in a sentence or phrase
+# Could be used later for NLP work - let's see
+
+def count_words(phrase):
+    from collections import Counter
+    phrase_elements = phrase.casefold()
+    
+    # Define the punctuation marks to be removed
+    punctuation = '''!()-[]{};:'"\,<>./?@#$%^&*_~'''
+    phrase_stripped =""
+    for char in phrase_elements:
+        if char not in punctuation:
+            phrase_stripped = phrase_stripped + char
+    phrase_stripped = phrase_stripped.split()
+    return Counter(phrase_stripped)
+    
+'''There are almost certainly more elegant ways of removing punctuation,
+though this was the easiest for me at the time'''
