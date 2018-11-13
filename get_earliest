@@ -1,0 +1,26 @@
+'''Return the earliest of any two MM/DD/YYYY type dates
+allowing for incorrect date entries'''
+
+# For loop method
+
+def get_earliest(first, second):
+    if first[6:]>second[6:]:
+        return second
+    elif first[6:]<second[6:]:
+        return first
+    elif first[0:2]>second[0:2]:
+        return second
+    elif first[0:2]<second[0:2]:
+        return first
+    elif first[3:5]>second[3:5]:
+        return second
+    elif first[3:5]<second[3:5]:
+        return first
+    else: print("The dates are the same")
+    
+# Tuple method
+
+def get_earliest_tuple(first, second):
+    (m1, d1, y1) = first.split('/')
+    (m2, d2, y2) = second.split('/')
+    return first if (y1, m1, d1) < (y2, m2, d2) else second
